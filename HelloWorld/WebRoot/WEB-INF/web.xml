@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+id="WebApp_ID" 
+version="3.1">
+  <display-name>HelloWorld</display-name>
+  <servlet>
+    <servlet-name>DeleteFeeItem</servlet-name>
+    <servlet-class>com.bap.fee.DeleteFeeItem</servlet-class>        
+  </servlet>
+  
+  <servlet>
+    <servlet-name>AddFeeItem</servlet-name>
+    <servlet-class>com.bap.fee.AddFeeItem</servlet-class>
+  </servlet>
+  
+<servlet>
+    <servlet-name>loginCheck</servlet-name>   
+    <servlet-class>com.bap.login.LoginCheck</servlet-class>       
+  </servlet>
+  <servlet>
+    <servlet-name>EditFeeItem</servlet-name>   
+    <servlet-class>com.bap.fee.EditFeeItem</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchFeeItem</servlet-name>
+    <servlet-class>com.bap.fee.SearchFeeItem</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddPlan</servlet-name>
+    <servlet-class>com.bap.plan.AddPlan</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EditPlan</servlet-name>
+    <servlet-class>com.bap.plan.EditPlan</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeletePlan</servlet-name>
+    <servlet-class>com.bap.plan.DeletePlan</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddActual</servlet-name>
+    <servlet-class>com.bap.actual.AddActual</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteActual</servlet-name>
+    <servlet-class>com.bap.actual.DeleteActual</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EditActual</servlet-name>
+  
+    <servlet-class>com.bap.actual.EditActual</servlet-class>
+  </servlet>
+
+
+
+
+
+
+<servlet-mapping>
+    <servlet-name>DeleteFeeItem</servlet-name>
+    <url-pattern>/DeleteFeeItem</url-pattern>
+  </servlet-mapping>
+<servlet-mapping>
+    <servlet-name>AddFeeItem</servlet-name>
+    <url-pattern>/AddFeeItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>loginCheck</servlet-name>
+    <url-pattern>/loginCheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditFeeItem</servlet-name>
+    <url-pattern>/EditFeeItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchFeeItem</servlet-name>
+    <url-pattern>/SearchFeeItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddPlan</servlet-name>
+    <url-pattern>/AddPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditPlan</servlet-name>
+    <url-pattern>/EditPlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePlan</servlet-name>
+    <url-pattern>/DeletePlan</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddActual</servlet-name>
+    <url-pattern>/AddActual</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteActual</servlet-name>
+    <url-pattern>/DeleteActual</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditActual</servlet-name>
+    <url-pattern>/EditActual</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
