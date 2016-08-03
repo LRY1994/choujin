@@ -59,11 +59,12 @@ function tabNav(x){
 			}
 		});
 		break;*/
-		$("#tab1").hide();
+		/*$("#tab1").hide();
 		$("#tab2").hide();
 		$("#tab3").hide();
 		$("#tab5").hide();
-		$("#tab4").show();
+		$("#tab4").show();*/
+		window.open("timeglider/index.jsp");
 		break;
 	    };
 	case 5 :{
@@ -80,6 +81,7 @@ function tabNav(x){
 		$("#tab3").hide();
 		$("#tab4").hide();
 		$("#tab5").show();
+		
 		break;
 	    };
 	

@@ -50,7 +50,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-2 col-md-1 sidebar">
+			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">					
 					<li ><a href="javascript:;" onclick="tabNav(1)" >酬金项目信息管理</a></li>
 					<li><a href="javascript:;" onclick="tabNav(2)" >计划进度信息管理</a></li>
@@ -64,7 +64,7 @@
 
 			</div>
 			
-			<div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main" id="content">
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">
                <div id="tab1" >
                   <jsp:include page="/feeitem/index.jsp"></jsp:include>
                </div>
@@ -74,9 +74,9 @@
                <div id="tab3" style="display:none">
                   <jsp:include page="/actualschedule/index.jsp"></jsp:include>
                </div>
-               <div id="tab4" style="display:none">
+               <%-- <div id="tab4" style="display:none">
                   <jsp:include page="/timeglider/index.jsp"></jsp:include>
-               </div>
+               </div>  --%>
                <div id="tab5" style="display:none">
                   <jsp:include page="/statics/index.jsp"></jsp:include>
                </div> 

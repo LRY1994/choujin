@@ -49,6 +49,9 @@
 				"modal_type":"default"
 				}
 				]},
+	
+	
+	
 				
 {
     "id": "plan",
@@ -64,10 +67,10 @@
     {
         "id": "1393",
         "title": "张桦炜：4月账期家宽上门服务酬金",
-        "startdate": "2016-07-0112:00",
+        "startdate": "2016-07-01 12:00",
         "enddate": "2016-07-01 12:00",
         "description": "The United States purchases Louisiana Territory.",
-"icon": "triangle_green.png",
+        "icon": "triangle_green.png",
         "low_threshold": "1",
         "high_threshold": "60",
         "importance": "50",

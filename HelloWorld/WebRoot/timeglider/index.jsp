@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <base href="<%=basePath%>">
 
-<title>进度时间轴</title>
+<title>时间轴</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -30,10 +30,6 @@
 <link rel="stylesheet"
 	href="./timeglider/timeglider/timeglider.datepicker.css"
 	type="text/css" charset="utf-8">
-<link rel="stylesheet" href="./timeglider/css/docs.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="./timeglider/css/jquery-ui-1.8.5.custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="./timeglider/timeglider/Timeglider.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="./timeglider/docs.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <script src='./timeglider/js/jquery.js' type='text/javascript'></script>
 <script src="./timeglider/js/jquery-ui.js" type="text/javascript"
 	charset="utf-8"></script>
@@ -72,13 +68,16 @@
 
 <style type='text/css'>
 #placement {
-	margin: 0px;
-	
+	margin: 32px;
+	margin-bottom: 0;
 	height: 600px;
 }
 </style>
 
-
+<link rel="stylesheet" href="./timeglider/css/docs.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="./timeglider/css/jquery-ui-1.8.5.custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="./timeglider/timeglider/Timeglider.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="./timeglider/docs-style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 
 </head>
@@ -175,3 +174,4 @@
 	</script>
 </body>
 </html>
+s
