@@ -1,9 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="com.bap.timeglider.DataHelper"%> 
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	DataHelper dh=new DataHelper();
+	//System.out.print(dh.getJson());
+	//System.out.print(dh.getFactData());
+	String datapath="/HelloWorld/json/"+dh.createFile(); 
+	
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -77,7 +84,7 @@
 <link rel="stylesheet" href="./timeglider/css/docs.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="./timeglider/css/jquery-ui-1.8.5.custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="./timeglider/timeglider/Timeglider.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="./timeglider/docs-style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
 
 
 </head>
@@ -95,7 +102,8 @@
 				"min_zoom" : 1,
 				"max_zoom" : 60,
 				"show_centerline" : true,
-				"data_source" : "./timeglider/json/presentation.json",
+				 "data_source" :"<%=datapath%>", 
+				/* "data_source":"./timeglider/json/presentation.json", */
 				"show_footer" : true,
 				"icon_folder" : "./timeglider/timeglider/icons/",
 				"display_zoom_level" : true
@@ -134,7 +142,8 @@
 
 				tg_actor.reloadTimeline({
 					id : "us_general",
-					source : "./timeglider/json/presentation.json",
+				    source : "<%=datapath%>", 
+					/* source :"./timeglider/json/presentation.json", */
 					call_this : callme
 				});
 
