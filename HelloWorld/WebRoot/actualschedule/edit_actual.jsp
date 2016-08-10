@@ -17,6 +17,8 @@
 	MySQLHelper  mysql=new MySQLHelper();
 	String sql="select USER_ID,USER_NAME  from JW_USER_INFO";
 	ResultSet rs=mysql.Query(sql);
+	String role=(String)session.getAttribute("usertype");
+	String userid=(String)session.getAttribute("userid");
 	%>
 <div class="container">
   <form action="EditActual" method="post"> 
@@ -29,6 +31,7 @@
     <label for="PLAN_SCHEDULE_ID">计划进度ID</label>
     <input type="text"  name="PLAN_SCHEDULE_ID" id="PLAN_SCHEDULE_ID"  style="border:none">
   </div>
+  <% if(role=="1"||"1".equals(role)){%>
   <div class="form-group">
     <label for="PARNER_INTERFACE">开发商接口人</label>
     <select  name="PARNER_INTERFACE" id="PARNER_INTERFACE">
@@ -42,6 +45,7 @@
        
     </select>  
   </div>
+  <%} %>
   <div class="form-group">
     <label for="START_DATE">实际开始时间</label>
      <input type="date" name="START_DATE" id="START_DATE">

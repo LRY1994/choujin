@@ -19,6 +19,8 @@
 		ResultSet rs=mysql.Query(sql);
 		String sql2="SELECT USER_ID,USER_NAME FROM JW_USER_INFO";
 		ResultSet rs2=mysql.Query(sql2);
+		String role=(String)session.getAttribute("usertype");
+		String userid=(String)session.getAttribute("userid");
 	%>
 <div class="container">
   <form action="AddActual" method="post"> 
@@ -38,6 +40,7 @@
        
     </select>
   </div>
+  <% if(role=="1"||"1".equals(role)){%>
  <div class="form-group">
     <label for="PARNER_INTERFACE">开发商接口人</label>
     <select  name="PARNER_INTERFACE" >
@@ -50,6 +53,7 @@
        
     </select>  
   </div>
+  <%} %>
   <div class="form-group">
     <label for="START_DATE">实际开始时间</label>
      <input type="date" name="START_DATE" >

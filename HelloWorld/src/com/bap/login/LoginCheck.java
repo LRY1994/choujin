@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bap.comn.MySQLHelper;
 
@@ -46,6 +47,7 @@ public class LoginCheck extends HttpServlet {
 		String path="login/index.jsp";
 		String userid=request.getParameter("userid");
 		String pwd=request.getParameter("password");
+		String role=request.getParameter("role");
 		List<String> info=new ArrayList<String>();
 		if(userid==null||"".equals(userid)){
 			info.add("用户id不能为空");
@@ -55,13 +57,15 @@ public class LoginCheck extends HttpServlet {
 		}
 		MySQLHelper mysql=null;
 		try{
-			String sql="select * from JW_USER_INFO where USER_ID='"+userid+"' and USER_PASSWORD='"+pwd+"'";
+			String sql="select * from JW_USER_INFO where USER_ID='"+userid+"' and USER_PASSWORD='"+pwd+"' and USER_TYPE='"+role+"'";
 			System.out.println(sql);
 			 mysql=new MySQLHelper();
-			
+			 HttpSession session = request.getSession(); 
 			ResultSet rs=mysql.Query(sql);
 			if(rs.next()){
 				info.add("登录成功");
+				session.setAttribute("userid",userid);
+				session.setAttribute("usertype", role);
 				response.sendRedirect("app/index.jsp");
 			}
 			else {

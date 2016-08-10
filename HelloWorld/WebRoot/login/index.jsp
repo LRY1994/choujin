@@ -47,18 +47,14 @@ System.out.println(basePath);
         <input type="password" name="password" class="form-control" placeholder="密码" required />
         <div class="radio">
         	<label>
-        		<input type="radio" name="role" value="1" />中国移动
+        		<input type="radio" name="role" value="1" />业务支持部
         	</label>
         	<label>
         		<input type="radio" name="role" value="2"/>开发商
         	</label>
         </div>       
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-        <!-- <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me" name="remember"> Remember me
-          </label>
-        </div> -->
+       
       </form>
     </div> 
   </body>

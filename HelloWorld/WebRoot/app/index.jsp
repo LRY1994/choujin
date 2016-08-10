@@ -51,20 +51,31 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
+			<%String role=(String)session.getAttribute("usertype");
+			System.out.println(role);
+			if(role=="1"||"1".equals(role)){
+			%>
 				<ul class="nav nav-sidebar">					
 					<li ><a href="javascript:;" onclick="tabNav(1)" >酬金项目信息管理</a></li>
 					<li><a href="javascript:;" onclick="tabNav(2)" >计划进度信息管理</a></li>
-					<li><a href="javascript:;" onclick="tabNav(3)" >实际进度信息管理</a></li>
+					<li><a href="javascript:;" onclick="tabNav(3)" >实际进度信息管理</a></li> 
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li><a href="javascript:;" onclick="tabNav(4)" >时间轴</a></li>
 					<li><a href="javascript:;" onclick="tabNav(5)" >时间统计</a></li>
 
 				</ul>
-
+				
+               <%} 
+               else {%>
+                 <ul class="nav nav-sidebar">	
+                    <li><a href="javascript:;" onclick="tabNav(3)" >实际进度信息</a></li>
+                 </ul>	
+               <%} %>
 			</div>
 			
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">
+			<%if(role=="1"||"1".equals(role)){ %>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">			
                <div id="tab1" >
                   <jsp:include page="/feeitem/index.jsp"></jsp:include>
                </div>
@@ -81,7 +92,12 @@
                   <jsp:include page="/statics/index.jsp"></jsp:include>
                </div> 
             </div>
-
+            <%}else{ %>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">			
+               
+                  <jsp:include page="/actualschedule/index.jsp"></jsp:include>
+             </div>
+             <%} %>  
 
 
 	<script src="<%=basePath %>/lib/jquery-3.1.0.min.js"></script>

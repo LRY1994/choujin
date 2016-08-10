@@ -10,14 +10,21 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";//http://localhost:8080/HelloWorld/
 	//System.out.println(basePath);
+	String role=(String)session.getAttribute("usertype");
+	String userid=(String)session.getAttribute("userid");
 %>
-
-	 
-				
-
+	 				
+               <%
+			if(role=="1"||"1".equals(role)){
+			%>
 				<button class="btn btn-info" data-toggle="modal" data-target="#add1">添加项目</button>
-
+            <%} %>
+            
+            
 				<div class="table-responsive">
+			<%
+			if(role=="1"||"1".equals(role)){
+			%>
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -73,6 +80,60 @@
 							%>
 						</tbody>
 					</table>
+			<%}else { %>
+			         <table class="table table-striped">
+						<thead>
+							<tr>
+								<th>实际进度ID</th>
+								<th>计划进度ID</th>																
+								<th>实际开始时间</th>
+								<th>实际结束时间</th>
+								<th>状态</th>
+								<th>备注</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="itemContainer">							
+									
+									<% MySQLHelper mysql = new MySQLHelper();
+
+									String sql = "SELECT  A.SCHEDULE_ID, A.PLAN_SCHEDULE_ID, "
+									         +"A.START_DATE,  A.END_DATE, A.STATUS , A.NOTE"
+									         +"  FROM "
+											 + "    JW_FEE_ACTUAL_SCHEDULE A "									         									       
+											 + "WHERE "																			
+											 +"    A.PARNER_INTERFACE_ID = '"+userid+"'";
+									System.out.println(sql);		
+								ResultSet rs = mysql.Query(sql);
+								 
+								 
+								
+								while (rs.next()) {
+							%>
+							<tr>
+								<td><%=rs.getString(1)%></td>																
+								<td><%=rs.getString(2)%></td>								
+								<td><%=rs.getDate(3)%></td>
+								<td><%=rs.getDate(4)%></td>
+								<td><%=rs.getString(5)%></td>
+								<td><%=rs.getString(6)%></td>
+								<td>
+									<button class="btn btn-warning op-edit" data-toggle="modal"
+										data-target="#edit1" onclick="edit_actual($(this))">修改</button>
+									<button class="btn btn-danger op-del" data-toggle="modal"
+										data-target="#delete1" onclick="delete_actual($(this))">删除</button>
+
+								</td>
+							</tr>
+							<%
+								}
+								mysql.Close();
+								
+							
+							%>
+						</tbody>
+					</table>
+					<%} %>
 					
 					<!-- 修改模态框 -->
 					<div class="modal fade" id="edit1" tabindex="-1" role="dialog"
