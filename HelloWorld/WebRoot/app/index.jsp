@@ -42,7 +42,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">酬金出账进度管控 </a>
+			<a class="navbar-brand" >酬金出账进度管控 </a>
 		</div>
 
 	</div>

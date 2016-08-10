@@ -43,7 +43,7 @@ public class LoginCheck extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String path="login/login.jsp";
+		String path="login/index.jsp";
 		String userid=request.getParameter("userid");
 		String pwd=request.getParameter("password");
 		List<String> info=new ArrayList<String>();
