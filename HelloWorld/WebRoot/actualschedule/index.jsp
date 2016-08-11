@@ -14,11 +14,8 @@
 	String userid=(String)session.getAttribute("userid");
 %>
 	 				
-               <%
-			if(role=="1"||"1".equals(role)){
-			%>
+             
 				<button class="btn btn-info" data-toggle="modal" data-target="#add1">添加项目</button>
-            <%} %>
             
             
 				<div class="table-responsive">

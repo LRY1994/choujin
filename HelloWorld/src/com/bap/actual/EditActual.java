@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bap.comn.MySQLHelper;
 
@@ -39,15 +40,23 @@ public class EditActual extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		 HttpSession session = request.getSession();
+		 String role=(String)session.getAttribute("usertype");
+		 String id=(String)session.getAttribute("userid");
+		 
 		String SCHEDULE_ID = (String) request.getParameter("SCHEDULE_ID"), 
-				PLAN_SCHEDULE_ID = (String)request.getParameter("PLAN_SCHEDULE_ID"),
-				PARNER_INTERFACE_ID = (String) request.getParameter("PARNER_INTERFACE"), 
+				PLAN_SCHEDULE_ID = (String)request.getParameter("PLAN_SCHEDULE_ID"), 
 				START_DATE = (String) request.getParameter("START_DATE"), 
 				END_DATE = (String) request.getParameter("END_DATE"), 
 				STATUS = (String) request.getParameter("STATUS"), 
-				NOTE = (String) request.getParameter("NOTE");
-
+				NOTE = (String) request.getParameter("NOTE"),
+				PARNER_INTERFACE_ID;
+		
+		if(role=="1"||"1".equals(role)){
+		PARNER_INTERFACE_ID = (String) request.getParameter("PARNER_INTERFACE");
+		}else{
+			PARNER_INTERFACE_ID=id;
+		}
 		MySQLHelper mysql = new MySQLHelper();
 
 		String sql = "UPDATE JW_FEE_ACTUAL_SCHEDULE SET "

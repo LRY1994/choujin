@@ -23,7 +23,7 @@ System.out.println(basePath);
   </head>
   
   <body>
-  <%request.setCharacterEncoding("GBK"); %>
+  
     <%
      List<String> info=(List<String>)request.getAttribute("info");
     if(info!=null){
