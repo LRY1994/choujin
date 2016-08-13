@@ -8,7 +8,7 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	System.out.println(path);
+	
 %>
 
 <%request.setCharacterEncoding("GBK"); %>

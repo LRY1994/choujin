@@ -44,7 +44,7 @@
 									        
 											 + "WHERE "
 											 + "    A.ITEM_ID = B.ITEM_ID; ";
-									System.out.println(sql);		
+									//System.out.println(sql);		
 								ResultSet rs = mysql.Query(sql);
 								 
 								 

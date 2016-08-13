@@ -46,7 +46,7 @@
 									         + "   JW_USER_INFO B " 									       
 											 + "WHERE "											
 											+ "    A.PARNER_INTERFACE_ID = B.USER_ID ";
-									System.out.println(sql);		
+									//System.out.println(sql);		
 								ResultSet rs = mysql.Query(sql);
 								 
 								 
@@ -100,7 +100,7 @@
 											 + "    JW_FEE_ACTUAL_SCHEDULE A "									         									       
 											 + "WHERE "																			
 											 +"    A.PARNER_INTERFACE_ID = '"+userid+"'";
-									System.out.println(sql);		
+									//System.out.println(sql);		
 								ResultSet rs = mysql.Query(sql);
 								 
 								 

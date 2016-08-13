@@ -68,7 +68,7 @@ public class EditActual extends HttpServlet {
 		+ "',NOTE='"+ NOTE
 		+ "' WHERE SCHEDULE_ID='" + SCHEDULE_ID				
 		+ "'";
-		System.out.println(sql);
+		//System.out.println(sql);
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("utf-8");
 		try{

@@ -51,7 +51,7 @@ public class DeleteActual extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			try{
 			
-				System.out.println(sql);						
+				//System.out.println(sql);						
 				int flag = mysql.Update(sql);
 				out.println(flag);
 				out.flush();

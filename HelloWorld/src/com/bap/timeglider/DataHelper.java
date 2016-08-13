@@ -72,7 +72,7 @@ public class DataHelper{
 				 +"  AND A.PARNER_INTERFACE_ID=D.USER_ID"
 				 +"  AND B.ITEM_ID=C.ITEM_ID ";
 		ResultSet rs=mysql.Query(sql);
-		System.out.println(sql);
+		//System.out.println(sql);
 		
 		List<EventData> li=new ArrayList<EventData>();
 	     while(rs.next()){
@@ -148,7 +148,7 @@ public class DataHelper{
 
 			String returnPath = tmp.getName();
 			
-			System.out.println("returnPath = "+returnPath);
+			//System.out.println("returnPath = "+returnPath);
 			return returnPath;
 		}
 }

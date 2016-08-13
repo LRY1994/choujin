@@ -64,7 +64,7 @@ public class EditPlan extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		try{
 		
-			System.out.println(sql);						
+			//System.out.println(sql);						
 			int flag = mysql.Update(sql);
 			out.println(flag);
 			out.flush();
