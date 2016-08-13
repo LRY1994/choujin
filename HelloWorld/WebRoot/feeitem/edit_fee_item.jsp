@@ -10,29 +10,6 @@
 %>
 
 <%
-	/*  String sql= "SELECT " + "    A.ITEM_ID, " + "    A.ITEM_NAME, "
-			+ "    A.BUSINESS_INTERFACE_ID, "
-			+ "    B.USER_NAME AS BUSINESS_INTERFACE_NAME, "
-			+ "    B.USER_NAME, " + "    A.ITC_INTERFACE_ID, "
-			+ "	   C.USER_NAME AS ITC_INTERFACE_NAME, "
-			+ "    C.USER_NAME, "
-			+ "    A.PARNER_A_INTERFACE_ID, "
-			+ "    D.USER_NAME AS PARNER_A_INTERFACE_NAME, "
-			+ "    D.USER_NAME, " + "	A.PARNER_B_INTERFACE_ID, "
-			+ "    E.USER_NAME AS PARNER_B_INTERFACE_NAME, "
-			+ "    E.USER_NAME " + "FROM "
-			+ "    JW_FEE_ITEM_INFO A, " + "    JW_USER_INFO B, "
-			+ "    JW_USER_INFO C, " + "	JW_USER_INFO D, "
-			+ "    JW_USER_INFO E  " + "WHERE "
-			+ "    A.BUSINESS_INTERFACE_ID = B.USER_ID "
-			+ "    AND A.ITC_INTERFACE_ID = C.USER_ID "
-			+ "    AND A.PARNER_A_INTERFACE_ID = D.USER_ID "
-			+ "    AND A.PARNER_B_INTERFACE_ID = E.USER_ID ;"; */
-
-	//+ "    AND A.ITEM_ID = '" + 1 + "';";
-	//out.print(sql1);
-	/*ResultSet rs1 = mysql.Query(sql1);
-	rs1.next(); */
 	//sql2="SELECT USER_CHIANESENAME FROM JW_USER_INFO WHERE USER_ID="
 
 	MySQLHelper mysql = new MySQLHelper();
@@ -48,9 +25,31 @@
 	}
 	int len=result.size(); */
 %>
+<script>     
+    function editFeeItem() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'EditFeeItem',  
+                dataType : 'text',  
+                data : $('#f2').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("修改i成功");
+                	else alert("修改失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
 <div class="container">
-	<!-- <form action="../feeitem/edit_save.jsp" method="post"> -->
-	<form action="EditFeeItem" method="post">
+	
+	<form  method="post" id="f2">
 		<div class="form-group">
 			<label for="itemId">酬金项ID</label> 
 			<input name="itemId" id="itemId"
@@ -118,7 +117,7 @@
 			</select>
 		</div>
 		<input type="hidden" id="hide" name="hide" />
-		<button type="submit" class="btn btn-primary">保存</button>
+		<button type="submit" class="btn btn-primary" onclick="editFeeItem()">保存</button>
 		<button class="btn btn-default" data-dismiss="modal">取消</button>
 		<%
 			mysql.Close();

@@ -12,7 +12,6 @@
 	//System.out.println(basePath);
 %>
 
- 	 
 				<!-- <form class="form-inline" action="#">
 					<div class="form-group">
 						<label for="fee_item_id">输入项目酬金ID</label>
@@ -112,6 +111,32 @@
 					</div>
 
 
+
+
+
+  <script>     
+    function deletFeeItem() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'DeleteFeeItem',  
+                dataType : 'text',  
+                data : $('#f3').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("删除成功");
+                	else alert("删除失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
+ 	 
 					<!-- 删除模态框 -->
 					<div class="modal fade" id="delete" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel">
@@ -126,13 +151,13 @@
 								</div>
 
 								<div class="modal-body">
-									<!-- <form action="../feeitem/delete_fee_item.jsp" method="post"> -->
-									<form action="DeleteFeeItem" method="post">
+									
+									<form id="f3" method="post">
 										<p>
 											确认删除此项目<input name="del_itemId" id="del_itemId"
 												readonly="readonly" style="border:none" />？
 										</p>
-										<button class="btn btn-danger " type="submit">删除</button>
+										<button class="btn btn-danger " type="submit" onclick="deletFeeItem()">删除</button>
 										<button class="btn btn-default" data-dismiss="modal">取消</button>
 									</form>
 								</div>

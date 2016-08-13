@@ -17,9 +17,30 @@
 		MySQLHelper mysql = new MySQLHelper();
 		String sql = "SELECT USER_ID,USER_NAME FROM JW_USER_INFO";
 	%>
-
+<script>     
+    function addFeeItem() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'AddFeeItem',  
+                dataType : 'text',  
+                data : $('#f1').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("添加成功");
+                	else alert("添加失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
 <div class="container">
-  <form action="AddFeeItem" method="post"> 
+  <form  method="post" id="f1"> 
   <div class="form-group">
     <label for="FEE_ITEM_ID">酬金项ID</label>
     <input id="FEE_ITEM_ID" name="FEE_ITEM_ID" type="text" readonly="readonly" value="<%=MySQLHelper.GetGlobalUniqueID()%>" />
@@ -82,69 +103,12 @@
 	</select>
   </div>
   
-  <button type="submit" class="btn btn-primary" >保存</button>
+  <button type="submit" class="btn btn-primary" onclick="addFeeItem()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>
 </form>
 	
 	
-	<%-- <form id="form1">
-		<label>酬金项ID</label>
-		<input id="FEE_ITEM_ID" type="text"	disabled="disabled" value="<%=MySQLHelper.GetGlobalUniqueID()%>" />
-		 <label>酬金项名称</label>
-		 <input id="FEE_ITEM_NAME" text="text"
-			value="请输入"><br> 
-			<label>业务部门接口人</label>
-			<select
-			id="BUSINESS_INTERFACE_NAME">
-
-			<%
-				 rs = mysql.Query(sql);
-				while (rs.next()) {
-			%>
-			<option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
-			<%
-				}
-			%>
-		</select>
-		 <br> 
-		 <label>业支接口人</label>
-		  <select id="ITC_INTERFACE_NAME">
-			<%
-				rs = mysql.Query(sql);
-				while (rs.next()) {
-			%>
-			<option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
-			<%
-				}
-			%>
-		</select> 
-		<br> 
-		<label>开发商A团队接口人</label>
-		 <select
-			id="PARNER_A_INTERFACE_NAME">
-			<%
-				rs = mysql.Query(sql);
-				while (rs.next()) {
-			%>
-			<option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
-			<%
-				}
-			%>
-		</select>
-		 <br> <label>开发商B团队接口人</label> <select
-			id="PARNER_B_INTERFACE_NAME">
-			<%
-				rs = mysql.Query(sql);
-				while (rs.next()) {
-			%>
-			<option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
-			<%
-				}
-			%>
-		</select> <br>
-	    <input type="button" value="保存" onclick="save_item();">
-		<input type="button" value="取消">
-	</form> --%>
+	
 	</div>
 </body>
 </html>
