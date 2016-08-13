@@ -20,8 +20,32 @@
 	String role=(String)session.getAttribute("usertype");
 	String userid=(String)session.getAttribute("userid");
 	%>
+	
+	
+	<script>     
+    function editActual() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'EditActual',  
+                dataType : 'text',  
+                data : $('#f8').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("修改成功");
+                	else alert("修改失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
 <div class="container">
-  <form action="EditActual" method="post"> 
+  <form id="f8" method="post"> 
   <div class="form-group">
     <label for="SCHEDULE_ID">实际进度ID</label>
     <input id="SCHEDULE_ID" name="SCHEDULE_ID" type="text" readonly="readonly"  style="border:none" />
@@ -68,7 +92,7 @@
   </div>
   
   
-  <button type="submit" class="btn btn-primary" >保存</button>
+  <button type="submit" class="btn btn-primary" onclick="editActual()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>
 </form>
 	

@@ -22,8 +22,30 @@
 		String role=(String)session.getAttribute("usertype");
 		String userid=(String)session.getAttribute("userid");
 	%>
+	<script>     
+    function addActual() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'AddActual',  
+                dataType : 'text',  
+                data : $('#f7').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("添加成功");
+                	else alert("添加失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
 <div class="container">
-  <form action="AddActual" method="post"> 
+  <form id="f7" method="post"> 
   <div class="form-group">
     <label for="SCHEDULE_ID">实际进度ID</label>
     <input name="SCHEDULE_ID" type="text" readonly="readonly" value="<%=MySQLHelper.GetGlobalUniqueID()%>" />
@@ -76,7 +98,7 @@
   </div>
   
   
-  <button type="submit" class="btn btn-primary" >保存</button>
+  <button type="submit" class="btn btn-primary" onclick="addActual()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>
 </form>
 	
