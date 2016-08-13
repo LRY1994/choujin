@@ -18,8 +18,30 @@
 		String sql = "SELECT ITEM_ID,ITEM_NAME FROM JW_FEE_ITEM_INFO";
 		ResultSet rs=mysql.Query(sql);
 	%>
+	<script>     
+    function addPlan() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'AddPlan',  
+                dataType : 'text',  
+                data : $('#f4').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("添加成功");
+                	else alert("添加失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
 <div class="container">
-  <form action="AddPlan" method="post"> 
+  <form id="f4" method="post"> 
   <div class="form-group">
     <label for="SCHEDULE_ID2">计划进度ID</label>
     <input name="SCHEDULE_ID2" type="text" readonly="readonly" value="<%=MySQLHelper.GetGlobalUniqueID()%>" />
@@ -62,7 +84,7 @@
   </div>
   
   
-  <button type="submit" class="btn btn-primary" >保存</button>
+  <button type="submit" class="btn btn-primary" onclick="addPlan()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>
 </form>
 	

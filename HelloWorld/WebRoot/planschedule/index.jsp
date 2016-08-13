@@ -100,7 +100,28 @@
 						</div>
 					</div>
 
-
+<script>     
+    function deletePlan() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'DeletePlan',  
+                dataType : 'text',  
+                data : $('#f6').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("删除成功");
+                	else alert("删除失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>
 					<!-- 删除模态框 -->
 					<div class="modal fade" id="delete2" tabindex="-1" role="dialog"
 						aria-labelledby="myModalLabel">
@@ -116,12 +137,12 @@
 
 								<div class="modal-body">
 									
-									<form action="DeletePlan" method="post">
+									<form id="f6" method="post">
 										<p>
 											确认删除此计划进度<input name="del_Id2" id="del_Id2"
 												readonly="readonly" style="border:none" />？
 										</p>
-										<button class="btn btn-danger " type="submit">删除</button>
+										<button class="btn btn-danger " type="submit" onclick="deletePlan()">删除</button>
 										<button class="btn btn-default" data-dismiss="modal">取消</button>
 									</form>
 								</div>

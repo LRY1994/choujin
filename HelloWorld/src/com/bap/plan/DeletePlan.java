@@ -53,14 +53,7 @@ public class DeletePlan extends HttpServlet {
 		
 			System.out.println(sql);						
 			int flag = mysql.Update(sql);
-			if (flag == 1) {							
-				out.println("delete successful");				
-				
-			} else {
-				out.println("delete fail");	
-				
-			}
-			response.setHeader("refresh", "0.5;URL=app/index.jsp");
+			out.println(flag);
 			out.flush();
 			out.close();
 			

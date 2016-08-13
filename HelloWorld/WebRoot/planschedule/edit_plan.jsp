@@ -19,8 +19,30 @@
 		String sql="SELECT ITEM_ID,ITEM_NAME FROM JW_FEE_ITEM_INFO";
 		ResultSet rs=mysql.Query(sql);
 	%>
+<script>     
+    function editPlan() {                 
+            $.ajax({  
+                type : 'post',  
+                url : 'EditPlan',  
+                dataType : 'text',  
+                data : $('#f5').serialize(),  
+                success : function (data) {  
+                	if(data==1)
+                    alert("修改成功");
+                	else alert("修改失败");
+                },
+                 error : function (XMLHttpRequest, textStatus, errorThrown) {  
+                    alert(errorThrown);  
+                }   
+            });  
+              
+    } 
+       
+  
+        
+</script>	
 <div class="container">
-  <form action="EditPlan" method="post"> 
+  <form id="f5" method="post"> 
   <div class="form-group">
     <label for="SCHEDULE_ID2">计划进度ID</label>
     <input id="SCHEDULE_ID2" name="SCHEDULE_ID2" type="text" readonly="readonly" />
@@ -64,7 +86,7 @@
   </div>
   
   
-  <button type="submit" class="btn btn-primary" >保存</button>
+  <button type="submit" class="btn btn-primary" onclick="editPlan()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>
 </form>
 	
