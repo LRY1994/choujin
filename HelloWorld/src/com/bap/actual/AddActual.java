@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bap.comn.MySQLHelper;
 
@@ -39,22 +40,24 @@ public class AddActual extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
+		 String role=(String)session.getAttribute("usertype");
+		 String id=(String)session.getAttribute("userid");
+		 
 		request.setCharacterEncoding("utf-8");
 		String scheduleId = (String) request.getParameter("SCHEDULE_ID"), 
 				planscheduleid = (String) request.getParameter("PLAN_SCHEDULE_ID"),
-			    parnerinterface = (String) request.getParameter("PARNER_INTERFACE"),			    
-				start = (String) request.getParameter("START_DATE"),
+			    parnerinterface = (String) request.getParameter("PARNER_INTERFACE");
+		
+				/*start = (String) request.getParameter("START_DATE"),
 				end = (String) request.getParameter("END_DATE"),
 				status = (String) request.getParameter("STATUS"),
-				note=(String)request.getParameter("NOTE");
+				note=(String)request.getParameter("NOTE");*/
 		        
 		MySQLHelper mysql = new MySQLHelper();
 
-	String sql = "insert into JW_FEE_ACTUAL_SCHEDULE values('" + scheduleId
-						+ "','" + planscheduleid + "','" + parnerinterface + "','"
-						+ start + "','" + end + "','"
-						+ status +"','"+note+ "')";
+	String sql = "insert into JW_FEE_ACTUAL_SCHEDULE (SCHEDULE_ID,PLAN_SCHEDULE_ID,PARNER_INTERFACE_ID) values('" + scheduleId
+						+ "','" + planscheduleid + "','" + parnerinterface +  "')";
 		
 	PrintWriter out = response.getWriter();
 	

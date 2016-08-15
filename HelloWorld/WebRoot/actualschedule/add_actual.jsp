@@ -75,7 +75,7 @@
        
     </select>  
   </div>
-  <%} %>
+  <%}else{ %>
   <div class="form-group">
     <label for="START_DATE">实际开始时间</label>
      <input type="date" name="START_DATE" >
@@ -96,7 +96,7 @@
     <label for="NOTE">备注</label>
     <textarea name="NOTE" ></textarea>
   </div>
-  
+  <%} %>
   
   <button type="submit" class="btn btn-primary" onclick="addActual()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>

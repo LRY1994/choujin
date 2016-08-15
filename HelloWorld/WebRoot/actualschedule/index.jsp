@@ -14,9 +14,11 @@
 	String userid=(String)session.getAttribute("userid");
 %>
 	 				
-             
+             <%
+			if(role=="1"||"1".equals(role)){
+			%>
 				<button class="btn btn-info" data-toggle="modal" data-target="#add1">添加项目</button>
-            
+            <%} %>
             
 				<div class="table-responsive">
 			<%
@@ -117,8 +119,8 @@
 								<td>
 									<button class="btn btn-warning op-edit" data-toggle="modal"
 										data-target="#edit1" onclick="edit_actual($(this))">修改</button>
-									<button class="btn btn-danger op-del" data-toggle="modal"
-										data-target="#delete1" onclick="delete_actual($(this))">删除</button>
+									<!-- <button class="btn btn-danger op-del" data-toggle="modal"
+										data-target="#delete1" onclick="delete_actual($(this))">删除</button> -->
 
 								</td>
 							</tr>
@@ -238,14 +240,18 @@
 	function edit_actual(ele) {		
 		var $child=ele.parent().parent().children();
 		$("#SCHEDULE_ID").val($child[0].innerHTML);
-		$("#PLAN_SCHEDULE_ID").attr("value",$child[1].innerHTML);		
+		$("#PLAN_SCHEDULE_ID").attr("value",$child[1].innerHTML);
+		var role="<%=role%>";
+		if(role=="1"){
 		var arr=$child[2].innerHTML.split('-');	 
 		$("#PARNER_INTERFACE").get(0).options[0].value=arr[0];
 		$("#PARNER_INTERFACE").get(0).options[0].text=arr[1];
-		$("#PARNER_INTERFACE").get(0).options[0].selected=true;		
-		$("#START_DATE").val($child[3].innerHTML);
-		$("#END_DATE").val($child[4].innerHTML);
-		$("#NOTE").val($child[6].innerHTML);					   
+		$("#PARNER_INTERFACE").get(0).options[0].selected=true;
+		}else{
+		$("#START_DATE").val($child[2].innerHTML);
+		$("#END_DATE").val($child[3].innerHTML);
+		$("#NOTE").val($child[5].innerHTML);
+		}
 	}
 	function delete_actual(ele) {
 		var $child=ele.parent().parent().children();

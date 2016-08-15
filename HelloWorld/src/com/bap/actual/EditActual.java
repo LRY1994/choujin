@@ -58,17 +58,21 @@ public class EditActual extends HttpServlet {
 			PARNER_INTERFACE_ID=id;
 		}
 		MySQLHelper mysql = new MySQLHelper();
-
-		String sql = "UPDATE JW_FEE_ACTUAL_SCHEDULE SET "
-		+ " PLAN_SCHEDULE_ID='"+ PLAN_SCHEDULE_ID 
-		+ "', PARNER_INTERFACE_ID='"+ PARNER_INTERFACE_ID
-		+ "',START_DATE='"+ START_DATE 
-		+ "',END_DATE='"+ END_DATE 
-		+ "',STATUS='"+ STATUS
-		+ "',NOTE='"+ NOTE
-		+ "' WHERE SCHEDULE_ID='" + SCHEDULE_ID				
-		+ "'";
-		//System.out.println(sql);
+		
+		String sql= "UPDATE JW_FEE_ACTUAL_SCHEDULE SET ";
+		
+        if(role=="1"||"1".equals(role)){
+        	sql+= " PLAN_SCHEDULE_ID='"+ PLAN_SCHEDULE_ID 
+    		+ "', PARNER_INTERFACE_ID='"+ PARNER_INTERFACE_ID;
+        }else{
+        	sql +=   "START_DATE='"+ START_DATE
+        			+ "',END_DATE='"+ END_DATE
+        			+ "',STATUS='"+ STATUS
+        			+ "',NOTE='"+ NOTE;
+        }
+		 
+		sql+= "' WHERE SCHEDULE_ID='" + SCHEDULE_ID+ "'";
+		System.out.println(sql);
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("utf-8");
 		try{

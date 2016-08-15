@@ -26,7 +26,7 @@
     function editActual() {                 
             $.ajax({  
                 type : 'post',  
-                url : 'EditActual',  
+                url : '/HelloWorld/EditActual',  
                 dataType : 'text',  
                 data : $('#f8').serialize(),  
                 success : function (data) {  
@@ -35,7 +35,7 @@
                 	else alert("修改失败");
                 },
                  error : function (XMLHttpRequest, textStatus, errorThrown) {  
-                    alert(errorThrown);  
+                    alert("hello");  
                 }   
             });  
               
@@ -69,7 +69,7 @@
        
     </select>  
   </div>
-  <%} %>
+  <%} else{%>
   <div class="form-group">
     <label for="START_DATE">实际开始时间</label>
      <input type="date" name="START_DATE" id="START_DATE">
@@ -78,6 +78,7 @@
     <label for="END_DATE">实际结束时间</label>
     <input type="date" name="END_DATE" id="END_DATE">
   </div>
+  
   <div class="form-group">
     <label for="STATUS">状态</label>
     <select name="STATUS" id="STATUS">
@@ -90,7 +91,7 @@
     <label for="NOTE">备注</label>
     <textarea name="NOTE" id="NOTE"></textarea>
   </div>
-  
+  <%} %>
   
   <button type="submit" class="btn btn-primary" onclick="editActual()">保存</button>
   <button  class="btn btn-default" data-dismiss="modal">取消</button>
