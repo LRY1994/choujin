@@ -35,7 +35,7 @@
                 	else alert("修改失败");
                 },
                  error : function (XMLHttpRequest, textStatus, errorThrown) {  
-                    alert("hello");  
+                    alert(errorThrown);  
                 }   
             });  
               

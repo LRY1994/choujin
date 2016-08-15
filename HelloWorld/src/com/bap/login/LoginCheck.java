@@ -57,19 +57,30 @@ public class LoginCheck extends HttpServlet {
 		}
 		MySQLHelper mysql=null;
 		try{
-			String sql="select * from JW_USER_INFO where USER_ID='"+userid+"' and USER_PASSWORD='"+pwd+"' and USER_TYPE='"+role+"'";
+			String sql="select USER_PASSWORD,USER_TYPE  from JW_USER_INFO where USER_ID='"+userid+"'";
 			System.out.println(sql);
 			 mysql=new MySQLHelper();
+			 
 			 HttpSession session = request.getSession(); 
 			ResultSet rs=mysql.Query(sql);
 			if(rs.next()){
+				if(rs.getString(1)!=pwd){
+					info.add("密码错误");
+					request.setAttribute("info", info);
+					request.getRequestDispatcher(path).forward(request, response);//跳转
+				}else if(rs.getString(2)!=role){
+					info.add("没有该类型的用户");
+					request.setAttribute("info", info);
+					request.getRequestDispatcher(path).forward(request, response);//跳转
+				}else{
 				info.add("登录成功");
 				session.setAttribute("userid",userid);
 				session.setAttribute("usertype", role);
 				response.sendRedirect("app/index.jsp");
+				}
 			}
 			else {
-				info.add("登录失败，错误的用户名和密码！");
+				info.add("登录失败，该用户名不存在！");
 				request.setAttribute("info", info);
 				request.getRequestDispatcher(path).forward(request, response);//跳转
 			}
