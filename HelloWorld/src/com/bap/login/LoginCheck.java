@@ -64,11 +64,13 @@ public class LoginCheck extends HttpServlet {
 			 HttpSession session = request.getSession(); 
 			ResultSet rs=mysql.Query(sql);
 			if(rs.next()){
-				if(rs.getString(1)!=pwd){
+				System.out.println(rs.getString(1));
+				System.out.println(pwd);
+				if(!rs.getString(1).equals(pwd)){
 					info.add("密码错误");
 					request.setAttribute("info", info);
 					request.getRequestDispatcher(path).forward(request, response);//跳转
-				}else if(rs.getString(2)!=role){
+				}else if(!rs.getString(2).equals(role)){
 					info.add("没有该类型的用户");
 					request.setAttribute("info", info);
 					request.getRequestDispatcher(path).forward(request, response);//跳转
