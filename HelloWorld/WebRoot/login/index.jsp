@@ -47,7 +47,7 @@ System.out.println(basePath);
         <input type="password" name="password" class="form-control" placeholder="密码" required />
         <div class="radio">
         	<label>
-        		<input type="radio" name="role" value="1" />业务支持部
+        		<input type="radio" name="role" value="1" />业务支持中心
         	</label>
         	<label>
         		<input type="radio" name="role" value="2"/>开发商

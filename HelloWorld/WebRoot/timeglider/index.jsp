@@ -102,8 +102,8 @@
 				"min_zoom" : 1,
 				"max_zoom" : 60,
 				"show_centerline" : true,
-				 "data_source" :"<%=datapath%>", 
-				/* "data_source":"./timeglider/json/presentation.json", */
+				"data_source" :"<%=datapath%>",
+				/*  "data_source":"/HelloWorld/timeglider/presentation.json",  */
 				"show_footer" : true,
 				"icon_folder" : "./timeglider/timeglider/icons/",
 				"display_zoom_level" : true
@@ -143,7 +143,7 @@
 				tg_actor.reloadTimeline({
 					id : "us_general",
 				    source : "<%=datapath%>", 
-					/* source :"./timeglider/json/presentation.json", */
+					/*  source :"/HelloWorld/timeglider/presentation.json", */ 
 					call_this : callme
 				});
 
