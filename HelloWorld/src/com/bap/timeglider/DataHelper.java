@@ -51,7 +51,7 @@ public class DataHelper{
 	    	 obj.setTitle(rs.getString(2)+" "+rs.getString(3));
 	    	 obj.setDescription("项目名称："+rs.getString(2)+"\n结算账期："+rs.getString(3));
 	    	 obj.setStartdate(rs.getDate(4).toString());
-	    	 obj.setEnddate(rs.getString(5).toString());
+	    	 obj.setEnddate(rs.getDate(5).toString());
 	    	 obj.setIcon("triangle_red.png");
 	    	 obj.setImportance("40");
 	    	 li.add(obj);
@@ -76,12 +76,15 @@ public class DataHelper{
 		
 		List<EventData> li=new ArrayList<EventData>();
 	     while(rs.next()){
+	    	 if(rs.getDate(5)==null){
+	    		 continue;
+	    	 }
 	    	 EventData obj=new EventData();
 	    	 obj.setId(rs.getString(1));
 	    	 obj.setTitle(rs.getString(2)+":"+rs.getString(3)+" "+rs.getString(4));
 	    	 obj.setDescription("开发商："+rs.getString(2)+"\n酬金名称："+rs.getString(3)+"\n结算账期："+rs.getString(4));
 	    	 obj.setStartdate(rs.getDate(5).toString());
-	    	 obj.setEnddate(rs.getString(6).toString());
+	    	 obj.setEnddate(rs.getDate(6).toString());
 	    	 obj.setIcon("triangle_green.png");
 	    	 obj.setImportance("40");
 	    	 li.add(obj);
@@ -148,7 +151,7 @@ public class DataHelper{
 
 			String returnPath = tmp.getName();
 			
-			//System.out.println("returnPath = "+returnPath);
+			System.out.println("returnPath = "+returnPath);
 			return returnPath;
 		}
 }
